@@ -1,0 +1,29 @@
+package relacion01;
+
+import java.util.Scanner;
+
+public class Ejercicio4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Escribe un numero: ");
+        int x = sc.nextInt();
+
+        System.out.println("Escribe otro numero: ");
+        int e = sc.nextInt();
+
+        int suma = x + e;
+        int resta =  x - e;
+        double division = (double) x/e;
+        double multiplicacion = x*e;
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("El primer numero es " + x + " y el segundo es " + e);
+        System.out.println("--------------------------------------------------");
+        System.out.println("La suma ambos numeros da " + suma + "\n" +
+                "La resta de ambos numeros es " + resta + "\n" +
+                "La division de ambos numeros es " + division + "\n" +
+                "La multiplicacion de ambos numeros es " + multiplicacion);
+
+    }
+}
+
