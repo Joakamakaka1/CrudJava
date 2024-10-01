@@ -85,7 +85,7 @@ public class UserController {
      * @param newName the new name
      * @return the respuestas
      */
-    public Respuestas updateUser(String nombre, String newName) {
+    public Respuestas updateUser(String nombre, String newName) { // TODO no actualiza correctamente
         try {
             User user = us.getUser(nombre);
             if (user == null) {

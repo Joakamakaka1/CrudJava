@@ -84,7 +84,7 @@ public class Main {
                 System.out.println(respuesta.getMessage());
                 respuestaOk = true;
             } else {
-                System.err.println(respuesta.getMessage());
+                System.err.println(respuesta.getMessage() + "\nIntentelo de nuevo");
             }
         }
     }
@@ -101,7 +101,7 @@ public class Main {
                 System.out.println(respuesta.getMessage());
                 respuestaOk = true;
             } else {
-                System.err.println(respuesta.getMessage());
+                System.err.println(respuesta.getMessage() + "\nIntentelo de nuevo");
             }
         }
     }
@@ -121,7 +121,7 @@ public class Main {
                 System.out.println(respuesta.getMessage());
                 respuestaOk = true;
             } else {
-                System.err.println(respuesta.getMessage());
+                System.err.println(respuesta.getMessage() + "\nIntentelo de nuevo");
             }
         }
     }
@@ -138,7 +138,7 @@ public class Main {
                 System.out.println(respuesta.getMessage());
                 respuestaOk = true;
             } else {
-                System.err.println(respuesta.getMessage());
+                System.err.println(respuesta.getMessage() + "\nIntentelo de nuevo");
             }
         }
     }
@@ -158,7 +158,7 @@ public class Main {
 
                 respuestaOk = true;
             } else {
-                System.err.println(respuesta.getMessage());
+                System.err.println(respuesta.getMessage() + "\nIntentelo de nuevo");
             }
         }
     }
