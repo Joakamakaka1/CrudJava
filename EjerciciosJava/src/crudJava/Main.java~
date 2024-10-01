@@ -89,6 +89,7 @@ public class Main {
         }else{
             System.err.println(readResponse.getMessage());
         }
+
     }
 
     private static void updateUser(Scanner sc, UserRepository ur) {
@@ -125,11 +126,6 @@ public class Main {
 
         User deleteUser = new User(name, password);
         Respuestas deleteResponse = ur.deleteUser(deleteUser);
-
-        if(deleteResponse.getStatus() == 200){
-            System.out.println(deleteResponse.getMessage());
-        }else{
-            System.err.println(deleteResponse.getMessage());
-        }
+        System.out.println(deleteResponse.getMessage());
     }
 }
