@@ -2,7 +2,9 @@ package crudJava;
 
 import crudJava.clases.Respuestas;
 import crudJava.clases.User;
+import crudJava.controller.UserController;
 import crudJava.repository.UserRepository;
+import crudJava.service.UserService;
 
 import java.util.Scanner;
 
@@ -10,19 +12,16 @@ import java.util.Scanner;
  * The type Main.
  */
 public class Main {
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
+    /*Pendiente de corrección*/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean bandera = true;
         UserRepository ur = new UserRepository();
-
-        ur.createUser(new User("Joaquin", "123456"));
+        UserService userService = new UserService(ur);
+        UserController userController = new UserController(userService, sc);
 
         System.out.println("Bienvenido al crudJava");
+
+        boolean bandera = true;
 
         while (bandera) {
             System.out.println("--------Elige una opcion--------");
@@ -35,16 +34,16 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    createUser(sc, ur);
+                    userController.createUser();
                     break;
                 case 2:
-                    searchUser(sc, ur);
+                    userController.searchUser();
                     break;
                 case 3:
-                    updateUser(sc, ur);
+                    userController.updateUser();
                     break;
                 case 4:
-                    deleteUser(sc, ur);
+                    userController.deleteUser();
                     break;
                 case 5:
                     System.out.println("Saliendo del programa...");
@@ -56,76 +55,5 @@ public class Main {
             }
         }
         sc.close();
-    }
-
-    private static void createUser(Scanner sc, UserRepository ur) {
-        System.out.println("Introduce el nombre del usuario");
-        String name = sc.next();
-        System.out.println("Introduce la contraseña del usuario");
-        String password = sc.next();
-
-        User newUser = new User(name, password);
-        Respuestas createResponse = ur.createUser(newUser);
-
-        if(createResponse.getStatus() == 201){
-            System.out.println(createResponse.getMessage());
-        }else{
-            System.err.println(createResponse.getMessage());
-        }
-
-    }
-
-    private static void searchUser(Scanner sc, UserRepository ur) {
-        System.out.println("Introduce el nombre del usuario");
-        String name = sc.next();
-        System.out.println("Introduce la contraseña del usuario");
-        String password = sc.next();
-
-        User searchUser = new User(name, password);
-        Respuestas readResponse = ur.readUser(searchUser);
-
-        if(readResponse.getStatus() == 200) {
-            System.out.println(readResponse.getMessage());
-        }else{
-            System.err.println(readResponse.getMessage());
-        }
-
-    }
-
-    private static void updateUser(Scanner sc, UserRepository ur) {
-        System.out.println("Introduce el nombre del usuario");
-        String name = sc.next();
-        System.out.println("Introduce la contraseña del usuario");
-        String password = sc.next();
-
-        User existingUser = new User(name, password);
-        Respuestas readResponse = ur.readUser(existingUser);
-
-        if (readResponse.getStatus() == 200) {
-            System.out.println(readResponse.getMessage());
-
-            System.out.println("Introduce el nuevo nombre del usuario");
-            String newName = sc.next();
-            System.out.println("Introduce la nueva contraseña del usuario");
-            String newPass = sc.next();
-
-            User userToUpdate = new User(newName, newPass);
-            Respuestas updateResponse = ur.updateUser(userToUpdate);
-
-            System.out.println(updateResponse.getMessage());
-        } else {
-            System.err.println(readResponse.getMessage());
-        }
-    }
-
-    private static void deleteUser(Scanner sc, UserRepository ur) {
-        System.out.println("Introduce el nombre del usuario");
-        String name = sc.next();
-        System.out.println("Introduce la contraseña del usuario");
-        String password = sc.next();
-
-        User deleteUser = new User(name, password);
-        Respuestas deleteResponse = ur.deleteUser(deleteUser);
-        System.out.println(deleteResponse.getMessage());
     }
 }

@@ -2,20 +2,20 @@ package crudJava.repository;
 
 import crudJava.clases.Respuestas;
 import crudJava.clases.User;
+
 import java.util.ArrayList;
 
 /**
  * The type User repository.
  */
 public class UserRepository {
-    private ArrayList<User> users = new ArrayList<>();
+    private final ArrayList<User> users = new ArrayList<>();
 
-    /**
-     * Create user respuestas.
-     *
-     * @param user the user
-     * @return the respuestas
-     */
+    public UserRepository() {
+        users.add(new User("Joaquin", "123456"));
+    }
+
+    /* Antiguo
     public Respuestas createUser(User user) {
         if (user == null) {
             return new Respuestas(400, "No se proporcionó un usuario válido", null);
@@ -39,6 +39,7 @@ public class UserRepository {
             return new Respuestas(500, "Error interno del servidor al crear el usuario", null);
         }
     }
+    */
 
     /**
      * Read user respuestas.
@@ -60,6 +61,7 @@ public class UserRepository {
         }
         return new Respuestas(404, "Usuario no encontrado", null);
     }
+
 
     /**
      * Update user respuestas.
@@ -100,12 +102,7 @@ public class UserRepository {
         return new Respuestas(404, "Usuario no encontrado", null);
     }
 
-    /**
-     * Delete user respuestas.
-     *
-     * @param user the user
-     * @return the respuestas
-     */
+    /* Antiguo
     public Respuestas deleteUser(User user) {
         if (user == null) {
             return new Respuestas(400, "No se proporcionó un usuario válido", null);
@@ -125,4 +122,28 @@ public class UserRepository {
         }
         return new Respuestas(404, "Usuario no encontrado", null);
     }
+    */
+
+    public User findUser(String nombre) {
+        for (User u : users) {
+            if (u.getName().equals(nombre)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public void delUser(String nombre) {
+        users.remove(findUser(nombre));
+    }
+
+    public void delUser(User user) {
+        users.remove(user);
+    }
+
+    public User createUser(User user) {
+        users.add(user);
+        return user;
+    }
+
 }

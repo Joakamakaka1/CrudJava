@@ -32,16 +32,10 @@ public class UserService {
         return ur.findUser(nombre);
     }
 
-    public User createUser(User user) {
-        if (user == null) {
+    public User createUser(String name, String password) {
+        if (name == null || name.isEmpty() || name.length() > 255 || password == null || password.isEmpty() || password.length() > 255) {
             return null;
         }
-        if (user.getName() == null || user.getName().isEmpty() || user.getName().length() > 255) {
-            return null;
-        }
-        if (user.getPassword() == null || user.getPassword().isEmpty() || user.getPassword().length() > 255) {
-            return null;
-        }
-        return ur.createUser(user);
+        return ur.createUser();
     }
 }
