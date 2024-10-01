@@ -4,6 +4,7 @@ import crudJava.clases.Respuestas;
 import crudJava.clases.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type User repository.
@@ -11,8 +12,64 @@ import java.util.ArrayList;
 public class UserRepository {
     private final ArrayList<User> users = new ArrayList<>();
 
+    /**
+     * Instantiates a new User repository.
+     */
     public UserRepository() {
         users.add(new User("Joaquin", "123456"));
+    }
+
+    /**
+     * Find user user.
+     *
+     * @param nombre the nombre
+     * @return the user
+     */
+    public User findUser(String nombre) {
+        for (User u : users) {
+            if (u.getName().equals(nombre)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Del by name.
+     *
+     * @param nombre the nombre
+     */
+    public void delByName(String nombre) {
+        users.remove(findUser(nombre));
+    }
+
+    /**
+     * Del user.
+     *
+     * @param user the user
+     */
+    public void delUser(User user) {
+        users.remove(user);
+    }
+
+    /**
+     * Create user.
+     *
+     * @param user the user
+     * @return the user
+     */
+    public User createUser(User user) {
+        users.add(user);
+        return user;
+    }
+
+    /**
+     * Gets all users.
+     *
+     * @return the all users
+     */
+    public List<User> getAllUsers() {
+        return new ArrayList<>(users);
     }
 
     /* Antiguo
@@ -41,12 +98,7 @@ public class UserRepository {
     }
     */
 
-    /**
-     * Read user respuestas.
-     *
-     * @param user the user
-     * @return the respuestas
-     */
+    /* Antiguo
     public Respuestas readUser(User user) {
         if (user == null) {
             return new Respuestas(400, "No se proporcionó un usuario válido", null);
@@ -61,14 +113,10 @@ public class UserRepository {
         }
         return new Respuestas(404, "Usuario no encontrado", null);
     }
-
-
-    /**
-     * Update user respuestas.
-     *
-     * @param user the user
-     * @return the respuestas
      */
+
+
+    /* Antiguo
     public Respuestas updateUser(User user) {
         if (user == null) {
             return new Respuestas(400, "No se proporcionó un usuario válido", null);
@@ -101,6 +149,7 @@ public class UserRepository {
 
         return new Respuestas(404, "Usuario no encontrado", null);
     }
+    */
 
     /* Antiguo
     public Respuestas deleteUser(User user) {
@@ -123,27 +172,4 @@ public class UserRepository {
         return new Respuestas(404, "Usuario no encontrado", null);
     }
     */
-
-    public User findUser(String nombre) {
-        for (User u : users) {
-            if (u.getName().equals(nombre)) {
-                return u;
-            }
-        }
-        return null;
-    }
-
-    public void delUser(String nombre) {
-        users.remove(findUser(nombre));
-    }
-
-    public void delUser(User user) {
-        users.remove(user);
-    }
-
-    public User createUser(User user) {
-        users.add(user);
-        return user;
-    }
-
 }
