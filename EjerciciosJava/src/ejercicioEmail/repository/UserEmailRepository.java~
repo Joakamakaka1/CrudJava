@@ -23,7 +23,6 @@ public class UserEmailRepository implements UserRepositoryAPI {
         userEmails.add(new UserEmail("Javier", "javier@javier"));
         userEmails.add(new UserEmail("Juan", "juan@juan"));
         userEmails.add(new UserEmail("Pedro", "pedro@pedro"));
-        userEmails.add(new UserEmail("Joaquin", "joaquin@joaquin"));
     }
 
     @Override

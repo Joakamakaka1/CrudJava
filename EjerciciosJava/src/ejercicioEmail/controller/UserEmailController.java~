@@ -68,8 +68,7 @@ public class UserEmailController {
             if (service.getUserEmail(email) == null) {
                 return new RespuestasHTTP(404, "Usuario no encontrado");
             }
-            boolean b = service.deleteUserEmail(email);
-            return b ?
+            return service.deleteUserEmail(email) ?
                     new RespuestasHTTP(200, "Usuario eliminado") :
                     new RespuestasHTTP(400, "Error al eliminar el usuario");
         } catch (Exception e) {

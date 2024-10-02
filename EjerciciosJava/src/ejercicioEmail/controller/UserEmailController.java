@@ -32,7 +32,7 @@ public class UserEmailController {
                     new RespuestasHTTP(200, "Usuario encontrado") :
                     new RespuestasHTTP(404, "Usuario no encontrado");
         } catch (Exception e) {
-            return new RespuestasHTTP(500, "Error interno del servidor", null);
+            return new RespuestasHTTP(500, "Error interno del servidor");
         }
     }
 
@@ -53,7 +53,7 @@ public class UserEmailController {
                     new RespuestasHTTP(201, "Usuario insertado") :
                     new RespuestasHTTP(404, "Usuario no insertado");
         } catch (Exception e) {
-            return new RespuestasHTTP(500, "Error interno del servidor", null);
+            return new RespuestasHTTP(500, "Error interno del servidor");
         }
     }
 
@@ -72,7 +72,7 @@ public class UserEmailController {
                     new RespuestasHTTP(200, "Usuario eliminado") :
                     new RespuestasHTTP(400, "Error al eliminar el usuario");
         } catch (Exception e) {
-            return new RespuestasHTTP(500, "Error interno del servidor", null);
+            return new RespuestasHTTP(500, "Error interno del servidor");
         }
     }
 }
