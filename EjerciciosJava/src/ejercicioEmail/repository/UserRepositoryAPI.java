@@ -18,7 +18,8 @@ public interface UserRepositoryAPI {
     /**
      * Insert user email user email.
      *
-     * @param userEmail the user email
+     * @param nombre the nombre
+     * @param email  the email
      * @return the user email
      */
     UserEmail insertUserEmail(String nombre, String email);

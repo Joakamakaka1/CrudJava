@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class UserEmailService {
 
-    private UserEmailRepository repository;
+    private final UserEmailRepository repository;
 
     /**
      * Instantiates a new User email service.
@@ -62,7 +62,7 @@ public class UserEmailService {
             return null;
         }
 
-        String regexEmail = "^[\\w-]+@\\w+\\.(com|es)$";
+        String regexEmail = "^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,}$";
         p = Pattern.compile(regexEmail);
         m = p.matcher(email);
         if (!m.matches()) {
