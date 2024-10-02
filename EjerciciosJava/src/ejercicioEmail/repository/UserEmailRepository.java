@@ -4,10 +4,19 @@ import ejercicioEmail.model.UserEmail;
 
 import java.util.ArrayList;
 
+/**
+ * The type User email repository.
+ */
 public class UserEmailRepository implements UserRepositoryAPI {
 
+    /**
+     * The User emails.
+     */
     ArrayList<UserEmail> userEmails;
 
+    /**
+     * Instantiates a new User email repository.
+     */
     public UserEmailRepository() {
         this.userEmails = new ArrayList<>();
 
@@ -31,10 +40,10 @@ public class UserEmailRepository implements UserRepositoryAPI {
     }
 
     @Override
-    public UserEmail insertUserEmail(UserEmail u) {
-        userEmails.add(u);
-        //return userEmails.stream().filter(userEmail -> userEmail.getEmail().equals(u.getEmail())).findFirst().orElse(null);
-        return getUserEmail(u.getEmail());
+    public UserEmail insertUserEmail(String nombre, String email) {
+        //return userEmails.stream().filter(userEmail -> userEmail.getEmail().equals(email)).findFirst().orElse(null);
+        userEmails.add(new UserEmail(nombre, email));
+        return getUserEmail(email);
     }
 
     @Override

@@ -21,7 +21,7 @@ public interface UserRepositoryAPI {
      * @param userEmail the user email
      * @return the user email
      */
-    UserEmail insertUserEmail(UserEmail userEmail);
+    UserEmail insertUserEmail(String nombre, String email);
 
     /**
      * Delete user email boolean.
