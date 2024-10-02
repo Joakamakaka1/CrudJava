@@ -1,0 +1,14 @@
+package ejercicioEmail.repository;
+
+import ejercicioEmail.model.UserEmail;
+
+public interface UserRepositoryIAPI {
+
+    UserEmail getUserEmail(String email);
+
+    UserEmail insertUserEmail(UserEmail userEmail);
+
+    void deleteUserEmail(String email);
+
+    boolean deleteUserEmail(String email);
+}
