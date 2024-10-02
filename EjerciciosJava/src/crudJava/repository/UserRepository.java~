@@ -63,13 +63,6 @@ public class UserRepository {
         return user;
     }
 
-    /**
-     * Update user user.
-     *
-     * @param nombre       the nombre
-     * @param userModified the user modified
-     * @return the user
-     */
     public User updateUser(String nombre, User userModified) {
         User oldUser = users.stream().filter(u -> u.getName().equals(nombre)).findFirst().orElse(null);
         if (oldUser != null) {

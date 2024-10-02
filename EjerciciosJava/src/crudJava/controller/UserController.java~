@@ -101,7 +101,7 @@ public class UserController {
             }
 
             return us.updateUser(nombre, newName, newPass) != null ?
-                    new Respuestas(200, "Usuario actualizado con éxito", null) :// OK
+                    new Respuestas(200, "Usuario actualizado con éxito", null)// OK
                     new Respuestas(403, "Prohibido: No se puede actualizar", null); // Forbidden
         } catch (Exception e) {
             return new Respuestas(500, "Error interno del servidor", null); // Internal server error

@@ -83,9 +83,11 @@ public class UserService {
             return null;
         }
 
+        // Compruebo si el usuario existe dentro de la base de datos
         User oldUser = ur.findUser(nombre);
         if (oldUser == null) return null;
 
+        // Actualizo el usuario
         User modifiedUser = new User("", "");
         if (newName == null || newName.isEmpty()) modifiedUser.setName(oldUser.getName());
         else modifiedUser.setName(newName);

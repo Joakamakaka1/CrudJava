@@ -115,9 +115,7 @@ public class Main {
             String nombre = sc.nextLine();
             System.out.print("Ingrese nuevo nombre: ");
             String nuevoNombre = sc.nextLine();
-            System.out.println("Ingresa una nueva contraseña");
-            String newPassword = sc.nextLine();
-            Respuestas respuesta = userController.updateUser(nombre, nuevoNombre, newPassword);
+            Respuestas respuesta = userController.updateUser(nombre, nuevoNombre);
 
             if (respuesta.getStatus() == 200) {
                 System.out.println(respuesta.getMessage());
