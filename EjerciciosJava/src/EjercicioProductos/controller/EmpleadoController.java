@@ -1,0 +1,59 @@
+package EjercicioProductos.controller;
+
+import EjercicioProductos.model.Empleado;
+import EjercicioProductos.repository.EmpleadoRepository;
+import EjercicioProductos.repository.GenericRepositoryAPI;
+import EjercicioProductos.service.EmpleadoService;
+
+import java.util.List;
+
+public class EmpleadoController {
+
+    private final EmpleadoService service;
+
+    public EmpleadoController() {
+        GenericRepositoryAPI<String, Empleado> repository = new EmpleadoRepository();
+        this.service = new EmpleadoService(repository);
+    }
+
+    public Empleado insert(Empleado newEmploye) {
+        try {
+            Empleado e = service.get(newEmploye.getDni());
+            return e != null ? service.insert(newEmploye) : null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public List<Empleado> getAll() {
+        try {
+            if(service.getAll() == null) {
+                return null;
+            }
+            return service.getAll();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Empleado get(String key) {
+        try {
+            Empleado e = service.get(key);
+            return e != null ? service.get(key): null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void delete(String key) {
+        try {
+            if (service.get(key) == null) {
+                return;
+            }
+            service.delete(key);
+        } catch (Exception e) {
+            return;
+        }
+    }
+}
+

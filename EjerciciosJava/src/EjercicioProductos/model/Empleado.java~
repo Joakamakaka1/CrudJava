@@ -1,0 +1,10 @@
+package EjercicioProductos.model;
+
+public class Empleado {
+
+    private String dni;
+    private String nombre;
+    private String dpto;
+
+    private String email;
+}
