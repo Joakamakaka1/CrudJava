@@ -1,6 +1,5 @@
 package ejercicioEmail.controller;
 
-import crudJava.clases.Respuestas;
 import ejercicioEmail.model.RespuestasHTTP;
 import ejercicioEmail.model.UserEmail;
 import ejercicioEmail.service.UserEmailService;

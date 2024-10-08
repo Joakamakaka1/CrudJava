@@ -10,11 +10,11 @@ public class ProductoRepository implements GenericRepositoryAPI<String, Producto
 
     public ProductoRepository() {
         this.productos = new HashSet<>();
-        productos.add(new Producto(1, "Laptop", "1000€", 10));
-        productos.add(new Producto(2, "Laptop", "1000€", 10));
-        productos.add(new Producto(3, "Laptop", "1000€", 10));
-        productos.add(new Producto(4, "Laptop", "1000€", 10));
-        productos.add(new Producto(5, "Laptop", "1000€", 10));
+        productos.add(new Producto("1", "Laptop", "1000€", 10));
+        productos.add(new Producto("2", "Laptop", "1000€", 10));
+        productos.add(new Producto("3", "Laptop", "1000€", 10));
+        productos.add(new Producto("4", "Laptop", "1000€", 10));
+        productos.add(new Producto("5", "Laptop", "1000€", 10));
     }
 
     public Producto insert(Producto producto) {
